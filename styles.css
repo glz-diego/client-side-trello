@@ -1,0 +1,29 @@
+#box{
+	background-color: lightgray;
+	border-radius: 5px;
+	border: 4px solid gray;
+	height: 90vh;
+	width: 99vw;
+	margin: 0px 10px;
+	display: none;
+}
+.btn{
+	margin: 10px;
+	box-shadow: none;
+}
+.hvr-grow-shadow:hover{
+	box-shadow: 5px 10px 8px #888888;
+}
+#swimlanes{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+.SL{
+	background-color: white;
+	border-radius: 7px;
+	border: 3px solid gray;
+	min-height: 100px;
+	width: 300px;
+	margin: 10px;
+}
