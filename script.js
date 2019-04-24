@@ -41,15 +41,16 @@ function newName() {
 	document.getElementById("list").appendChild(add);
 	addButton();
 }
-var aC;
 function addButton(){
 	var list = document.getElementById("list");
-	aC = "<input type='submit' value='Add Card' onclick='addCard()' class='btn btn-secondary'>"
+	var aC = "<input style='text' placeholder='Card Name' id='cName'><input style='text' placeholder='Card Description' id='cDesc'><input type='submit' value='Add' onclick='addCard' class='btn btn-secondary'>"
 	list.insertAdjacentHTML("beforeend", aC);
-	return aC;
 }
 	function addCard(){
-		aC.remove(aC.Index);
-		var card = "<input type='text' value='Card Name'><input type='submit' value='Add Name' class='btn btn-secondary'>"
-		document.getElementById("list").appendChild(card);
+		var list = document.getElementById("list");
+		var cName = document.getElementById("cName").value;
+		var cDesc = document.getElementById("cDesc").value;
+		list.insertAdjacentHTML("beforeend", cName);
+		list.insertAdjacentHTML("beforeend", cDesc);
+		console.log(cName + cDesc);
 	}
