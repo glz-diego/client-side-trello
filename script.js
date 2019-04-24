@@ -1,4 +1,4 @@
-var SwimLane = [];
+var SwimLanes = [];
 
 function newTitle() {
 	var newT = document.getElementById("newTitle").value;
@@ -17,24 +17,31 @@ function newTitle() {
 	display();
 }
 
-// function newName() {
-// 	var newN = document.getElementById("newName").value;
-// 	var name = document.getElementById("name");
-// 	name.remove(name.Index);
-// 	var add = document.createElement('h4');
-// 	add.innerHTML = newN;
-// 		add.style.color = "black";
-// 		add.style.fontSize = "20px";
-// 		add.style.fontFamily = "Roboto";
-// 	document.getElementById("").appendChild(add);
-// }
-
 function display(){
 	var box = document.getElementById("box");
 	box.style.display = "block";
 }
+
 function addSL(){
 	var box = document.getElementById("box");
-	var html = "<div class='SL' style='float: left;'><input type='text' placeholder='Card Name' reqired><input type='submit'></div>";
+	var html = "<div class='SL' style='float: left; margin: 7px' id='list'><h6 id='name'><input type='text' id='newName' placeholder='SwimLane Name' reqired><input type='submit' onclick='newName()'></h6></div>";
 	box.insertAdjacentHTML("beforeend",html);
+	// newName();
+}
+
+function newName() {
+	var newN = document.getElementById("newName").value;
+	var name = document.getElementById("name");
+	name.remove(name.Index);
+	var add = document.createElement('h4');
+	add.innerHTML = newN;
+		add.style.color = "black";
+		add.style.fontSize = "20px";
+		add.style.fontFamily = "Roboto";
+		add.style.textAlign = "center";
+	document.getElementById("list").appendChild(add);
+}
+
+function addCard(){
+
 }
