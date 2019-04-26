@@ -1,4 +1,5 @@
 var SwimLanes = [];
+var swimlaneCounter = 0;
 
 function newTitle() {
 	var newT = document.getElementById("newTitle").value;
@@ -23,34 +24,41 @@ function display(){
 }
 
 function addSL(){
-	var box = document.getElementById("box");
-	var html = "<div class='SL' style='float: left; margin: 7px' id='list'><h6 id='name'><input type='text' id='newName' placeholder='SwimLane Name' reqired><input type='submit' onclick='newName()' value='Add Name' class='btn btn-secondary'></h6></div>";
-	box.insertAdjacentHTML("beforeend", html);
+	var box = document.getElementById("swimlanes");
+	var swimlane = document.createElement('div')
+	swimlane.innerHTML = `<div class='SL' style='float: left; margin: 7px' id='list-${swimlaneCounter}'><h6 id='name'><input type='text' id='newName' placeholder='SwimLane Name' required><input type='submit' onclick='newName(event,this, ${swimlaneCounter})' value='Add Name' class='btn btn-secondary'></h6></div>`;
+//	box.insertAdjacentHTML("beforeend", swimlane);
+	box.appendChild(swimlane);
+	swimlaneCounter++;
 }
 
-function newName() {
-	var newN = document.getElementById("newName").value;
+function newName(event, item, swimlaneId) {
+	var swimlane = document.getElementById(`list-${swimlaneId}`);
+	var newN = document.getElementById('newName').value;
+	
 	var name = document.getElementById("name");
 	name.remove(name.Index);
+
 	var add = document.createElement('h4');
 	add.innerHTML = newN;
 		add.style.color = "black";
 		add.style.fontSize = "20px";
 		add.style.fontFamily = "Roboto";
 		add.style.textAlign = "center";
-	document.getElementById("list").appendChild(add);
-	addButton();
+
+	swimlane.prepend(add);
+	addButton(swimlaneId);
 }
-function addButton(){
-	var list = document.getElementById("list");
+function addButton(swimlaneId){
+	var list = document.getElementById(`list-${swimlaneId}`);
 	var aC = "<input style='text' placeholder='Card Name' id='cName'><input style='text' placeholder='Card Description' id='cDesc'><input type='submit' value='Add' onclick='addCard' class='btn btn-secondary'>"
 	list.insertAdjacentHTML("beforeend", aC);
 }
-	function addCard(){
-		var list = document.getElementById("list");
-		var cName = document.getElementById("cName").value;
-		var cDesc = document.getElementById("cDesc").value;
-		list.insertAdjacentHTML("beforeend", cName);
-		list.insertAdjacentHTML("beforeend", cDesc);
-		console.log(cName + cDesc);
-	}
+function addCard(){
+	var list = document.getElementById("list");
+	var cName = document.getElementById("cName").value;
+	var cDesc = document.getElementById("cDesc").value;
+	list.insertAdjacentHTML("beforeend", cName);
+	list.insertAdjacentHTML("beforeend", cDesc);
+	console.log(cName + cDesc);
+}
