@@ -50,11 +50,11 @@ function newName(event, item, swimlaneId) {
 }
 function addButton(swimlaneId){
 	var list = document.getElementById(`list-${swimlaneId}`);
-	var aC = `<input style='text' placeholder='Card Name' id='cName'><input style='text' placeholder='Card Description' id='cDesc'><input type='submit' value='Add' onclick='addCard' class='btn btn-secondary'>`
-	list.insertAdjacentHTML("beforeend", aC);
+	var aC = `<input style='text' placeholder='Card Name' id='cName'><input style='text' placeholder='Card Description' id='cDesc'><input type='submit' value='Add' onclick='addCard()' class='btn btn-secondary'>`
+	list.appendChild(aC);
 }
 function addCard(){
-	console.log(6)
+	console.log(6);
 	var list = document.getElementById("list");
 	var cName = document.getElementById("cName").value;
 	var cDesc = document.getElementById("cDesc").value;
