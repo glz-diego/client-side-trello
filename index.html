@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Task Board</title>
+	<title>Trello Board</title>
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -12,20 +12,19 @@
 </head>
 <body>
 	<div id="header" style="padding: 15px;">
-		<h6 id="title">
-			Title: &nbsp;
-			<input type="text" id="newTitle" placeholder="New Title">
+		<h5 id="title">
+			Title: 
+			<input type="text" id="newTitle" placeholder="&nbsp;New Title">
 			<input type="submit" onclick="newTitle()">
-		</h6>
+		</h5>
 	</div>
 
 	<div id="box">
 		<div class="row" style="display: flex; justify-content: space-around;">
-			<input type="button" class="hvr-grow-shadow btn btn-light" value="Add Swimlane" id="addSL" onclick="addSL()">
+			<input type="button" class="hvr-grow-shadow btn btn-light hvr-shadow" value="Add Swimlane" id="addSL" onclick="addSL()">
 		</div>
 		<div class="row" id="swimlanes">
 			
-			s
 		</div>
 	</div>
 </body>

@@ -26,8 +26,7 @@ function display(){
 function addSL(){
 	var box = document.getElementById("swimlanes");
 	var swimlane = document.createElement('div')
-	swimlane.innerHTML = `<div class='SL' style='float: left; margin: 7px' id='list-${swimlaneCounter}'><h6 id='name'><input type='text' id='newName' placeholder='SwimLane Name' required><input type='submit' onclick='newName(event,this, ${swimlaneCounter})' value='Add Name' class='btn btn-secondary'></h6></div>`;
-//	box.insertAdjacentHTML("beforeend", swimlane);
+	swimlane.innerHTML = `<div class='SL' style='float: left; margin: 7px;' id='list-${swimlaneCounter}'><h6 id='name'><input type='text' id='newName' placeholder='SwimLane Name' required><input type='submit' onclick='newName(event,this, ${swimlaneCounter})' value='Add Name' class='btn btn-secondary'></h6></div>`;
 	box.appendChild(swimlane);
 	swimlaneCounter++;
 }
@@ -51,10 +50,11 @@ function newName(event, item, swimlaneId) {
 }
 function addButton(swimlaneId){
 	var list = document.getElementById(`list-${swimlaneId}`);
-	var aC = "<input style='text' placeholder='Card Name' id='cName'><input style='text' placeholder='Card Description' id='cDesc'><input type='submit' value='Add' onclick='addCard' class='btn btn-secondary'>"
+	var aC = `<input style='text' placeholder='Card Name' id='cName'><input style='text' placeholder='Card Description' id='cDesc'><input type='submit' value='Add' onclick='addCard' class='btn btn-secondary'>`
 	list.insertAdjacentHTML("beforeend", aC);
 }
 function addCard(){
+	console.log(6)
 	var list = document.getElementById("list");
 	var cName = document.getElementById("cName").value;
 	var cDesc = document.getElementById("cDesc").value;
