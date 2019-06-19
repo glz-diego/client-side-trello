@@ -1,5 +1,6 @@
 var SwimLanes = [];
 var swimlaneCounter = 0;
+var titleNeeded = false;
 
 function newTitle() {
 	var newT = document.getElementById("newTitle").value;
@@ -10,12 +11,16 @@ function newTitle() {
 		add.style.color = "#1d5ec6";
 		add.style.fontSize = "50px";
 		add.style.fontFamily = "Roboto";
-		add.style.marginTop = "-10px";
-		add.style.marginBottom = "-15px";
+		add.style.marginTop = "1px";
+		add.style.marginBottom = "10px";
 		add.style.paddingLeft = "5px";
+		add.style.textAlign = "center";
+		add.style.textTransform = "capitalize";
+		add.style.contenteditable="true";
+		var edit = document.createAttribute("contenteditable");
+		edit.value = "true";
+		add.setAttributeNode(edit);   
 	document.getElementById("header").appendChild(add);
-
-	display();
 }
 
 function display(){
@@ -26,7 +31,13 @@ function display(){
 function addSL(){
 	var box = document.getElementById("swimlanes");
 	var swimlane = document.createElement('div')
-	swimlane.innerHTML = `<div class='SL' style='float: left; margin: 7px;' id='list-${swimlaneCounter}'><h6 id='name'><input type='text' id='newName' placeholder='SwimLane Name' required><input type='submit' onclick='newName(event,this, ${swimlaneCounter})' value='Add Name' class='btn btn-secondary'></h6></div>`;
+	swimlane.innerHTML = 
+	`<div class='SL' style='float: left; margin: 7px;' id='list-${swimlaneCounter}'>
+		<h6 id='name'>
+			<input type="text" class="form-control" id="newName" placeholder="SwimLane Name" style="width: 150px; margin-left: 10px" autofocus>
+			<input type='submit' onclick='newName(event,this, ${swimlaneCounter})' value='Add Name' class='btn btn-secondary'>
+		</h6>
+	</div>`;
 	box.appendChild(swimlane);
 	swimlaneCounter++;
 }
@@ -41,20 +52,28 @@ function newName(event, item, swimlaneId) {
 	var add = document.createElement('h4');
 	add.innerHTML = newN;
 		add.style.color = "black";
-		add.style.fontSize = "20px";
+		add.style.fontSize = "30px";
 		add.style.fontFamily = "Roboto";
 		add.style.textAlign = "center";
-
+		var edit = document.createAttribute("contenteditable");
+		edit.value = "true";
+		add.setAttributeNode(edit);   
 	swimlane.prepend(add);
 	addButton(swimlaneId);
 }
 function addButton(swimlaneId){
 	var list = document.getElementById(`list-${swimlaneId}`);
-	var aC = `<input style='text' placeholder='Card Name' id='cName'><input style='text' placeholder='Card Description' id='cDesc'><input type='submit' value='Add' onclick='addCard()' class='btn btn-secondary'>`
-	list.appendChild(aC);
+	var aC = 
+	`<div class='cardBox'>
+		<div class="form-group">
+			<input type="text" placeholder='Card Name' class="form-control" id="formGroupExampleInput cName" style='width: 150px; float: left;'>
+			<input type='submit' value='Add' onclick='addCard()' class='btn btn-secondary' style='margin: 0px 0px 7px 7px !important'>
+			<textarea class="form-control" id="exampleFormControlTextarea1 cDesc" placeholder='Card Description' rows="3"></textarea>
+		</div>
+	</div>`
+	list.insertAdjacentHTML("beforeend", aC);
 }
 function addCard(){
-	console.log(6);
 	var list = document.getElementById("list");
 	var cName = document.getElementById("cName").value;
 	var cDesc = document.getElementById("cDesc").value;
