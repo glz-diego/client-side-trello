@@ -1,4 +1,4 @@
-var SwimLanes = [];
+var swimLanes = [];
 var swimlaneCounter = 0;
 var titleNeeded = false;
 
@@ -16,7 +16,6 @@ function newTitle() {
 		add.style.paddingLeft = "5px";
 		add.style.textAlign = "center";
 		add.style.textTransform = "capitalize";
-		add.style.contenteditable="true";
 		var edit = document.createAttribute("contenteditable");
 		edit.value = "true";
 		add.setAttributeNode(edit);   
