@@ -23,7 +23,7 @@ function newTitle(){
 
 function addSL(){
 	var box = document.getElementById("swimlanes");
-	var swimlane = document.createElement('div')
+	var swimlane = document.createElement('div');
 	swimlane.innerHTML = 
 	`<div class='SL' style='float: left; margin: 7px;' id='list-${swimlaneCounter}'>
 		<h6 id='swimlane-input-wrapper-${swimlaneCounter}'>
@@ -86,7 +86,7 @@ function deleteItem(itemType, itemId){
 			removeSwimlane.remove()
 		break;
 	}
-} // come back and make this work
+}
 
 function createCard(swimlaneId){
 	var list = document.getElementById(`list-${swimlaneId}`);
