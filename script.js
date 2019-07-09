@@ -70,6 +70,7 @@ function newName(event, item, swimlaneId){
 		add.style.fontSize = "30px";
 		add.style.fontFamily = "Roboto";
 		add.style.textAlign = "center";
+		add.style.textTransform = "capitalize";
 		add.setAttribute("contenteditable", true);
 	swimlane.append(add);
 	createCard(swimlaneId);
@@ -118,7 +119,7 @@ function addCard(cardId){
 	var cName = document.getElementById(`cName-${cardId}`);
 	var cDesc = document.getElementById(`cDesc-${cardId}`);
 
-	cNameText = `<h3 contentEditable="true">${cName.value}</h3>`;
+	cNameText = `<h3 contentEditable="true" style="text-transform: capitalize">${cName.value}</h3>`;
 	cDescText = `<p contentEditable="true">${cDesc.value}</p>`;
 	deleteBtn = `<button class="btn btn-danger" onclick="deleteItem('card', '${cardId}')">Delete?</button>`;
 
